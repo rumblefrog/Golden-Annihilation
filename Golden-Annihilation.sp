@@ -11,20 +11,20 @@
 
 public Plugin myinfo = 
 {
-	name = "Golden Death",
+	name = "Golden Annihilation",
 	author = PLUGIN_AUTHOR,
-	description = "Turns ragdoll into golden statue",
+	description = "A simple plugin that turns ragdoll into golden statue",
 	version = PLUGIN_VERSION,
 	url = "https://keybase.io/rumblefrog"
 };
 
 public void OnPluginStart()
 {
-	CreateConVar("gd_version", PLUGIN_VERSION, "Golden Death Version Control", FCVAR_REPLICATED | FCVAR_SPONLY | FCVAR_NOTIFY);
+	CreateConVar("ga_version", PLUGIN_VERSION, "Golden Annihilation Version Control", FCVAR_REPLICATED | FCVAR_SPONLY | FCVAR_NOTIFY);
 	
 	HookEvent("player_death", Event_PlayerDeath, EventHookMode_PostNoCopy);
 	
-	RegAdminCmd("gd_permission", CmdVoid, ADMFLAG_RESERVATION);
+	RegAdminCmd("ga_permission", CmdVoid, ADMFLAG_RESERVATION);
 }
 
 public Action CmdVoid(int iClient, int iArgs)
@@ -37,7 +37,7 @@ public void Event_PlayerDeath(Event event, const char[] name, bool dontBroadcast
 	int iClient = GetClientOfUserId(GetEventInt(event, "userid"));
 	int iAttacker = GetClientOfUserId(GetEventInt(event, "attacker"));
 	
-	if (iAttacker == 0 || !CheckCommandAccess(iAttacker, "gd_permission", ADMFLAG_RESERVATION))
+	if (iAttacker == 0 || !CheckCommandAccess(iAttacker, "ga_permission", ADMFLAG_RESERVATION))
 		return;
 	
 	int iVteam = GetClientTeam(iClient);
