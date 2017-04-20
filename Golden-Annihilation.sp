@@ -25,7 +25,7 @@ SOFTWARE.
 #pragma semicolon 1
 
 #define PLUGIN_AUTHOR "Fishy"
-#define PLUGIN_VERSION "1.0.0"
+#define PLUGIN_VERSION "1.0.1"
 
 #include <sourcemod>
 #include <tf2>
@@ -61,7 +61,7 @@ public void Event_PlayerDeath(Event event, const char[] name, bool dontBroadcast
 	int iClient = GetClientOfUserId(GetEventInt(event, "userid"));
 	int iAttacker = GetClientOfUserId(GetEventInt(event, "attacker"));
 	
-	if (iAttacker == 0 || !CheckCommandAccess(iAttacker, "ga_permission", ADMFLAG_RESERVATION))
+	if (iAttacker == 0 || iAttacker == iClient || !CheckCommandAccess(iAttacker, "ga_permission", ADMFLAG_RESERVATION))
 		return;
 	
 	int iVteam = GetClientTeam(iClient);

@@ -3,7 +3,7 @@ A simple plugin that turns ragdoll into golden statue
 
 # Setup
 
-1. Set command override for **ga_permission** [Default: ADMFLAG_RESERVATION]
+1. Set command override for **ga_permission** [Default: **ADMFLAG_RESERVATION**]
 
 # Download 
 
