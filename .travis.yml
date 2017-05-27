@@ -35,3 +35,4 @@ deploy:
 
 notifications:
   email: false
+  webhooks: "$endpoint"
